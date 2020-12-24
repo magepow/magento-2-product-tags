@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<update id="magepow" module="Magepow_ProductTags" resource="Magento_Backend::content" sortOrder="10" title="Magepow"/>
+		<add id="magepow::producttags" module="Magepow_ProductTags" parent="magepow" resource="Magepow_ProductTags::Tag" action="magepow_producttags/tag/index" sortOrder="9999" title="Product Tags"/>
+		<!-- display in catalog -->
+		<!-- <add id="Magepow_ProductTags::producttags" module="Magepow_ProductTags" parent="Magento_Catalog::inventory" resource="Magepow_ProductTags::Tag" action="magepow_producttags/tag/index" sortOrder="9999" title="Product Tags"/> -->
+	</menu>
+</config>

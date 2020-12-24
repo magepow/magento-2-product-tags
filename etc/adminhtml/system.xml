@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="magepow" sortOrder="15" translate="label">
+			<label>Magepow</label>
+		</tab>
+		<section id="magepow_producttags" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>ProductTags</label>
+			<tab>magepow</tab>
+			<resource>Magepow_ProductTags::magepow_producttags</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>general</label>
+				<field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Choose yes will enable the Productags module.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="route" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Route</label>
+                    <comment>This text will change your URL, default is "productags".</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                
+                <field id="show_number_products" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show the number of products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show/hide Show number of products beside tags.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                
+                <field id="enable_tag_on_product" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Tag on the product details</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show/hide product tags on the product detail page.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_tag_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product tags title</label>
+                    <comment>This text will show title tags on the page product details.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="enable_tag_on_product">1</field>
+                    </depends>
+                </field>
+                <field id="number_tags" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Limit tags to show</label>
+                    <comment>Show the number of product tags on the product detail page, default is 10.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="enable_tag_on_product">1</field>
+                    </depends>
+                </field>
+
+                <field id="enable_tag_sidebar" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable tag on Sidebar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show/hide product tags on the sidebar position.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tag_sidebar_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sidebar tags title</label>
+                    <comment>This text will show title tags on the sidebar block.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="enable_tag_sidebar">1</field>
+                    </depends>
+                </field>
+                <field id="number_tags_sidebar" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Limit tags on Sidebar</label>
+                    <comment>This text will limit the number of tags shown on the sidebar block.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="enable_tag_sidebar">1</field>
+                    </depends>
+                </field>
+                
+			</group>
+		</section>
+	</system>
+</config>

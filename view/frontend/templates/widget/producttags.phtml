@@ -1,0 +1,30 @@
+<?php
+$helper = $this->helper('Magepow\ProductTags\Helper\Data');
+$isEnabled = $helper->getConfigModule('general/enabled');
+if(!$isEnabled) return;
+$tags = $this->getTagCollection();
+$widgetTitle = $block->getData('title');
+$show_number_products = $block->getData('show_number_products');
+$show_number_products = $show_number_products ?? 0;
+if($tags && $tags->getSize()){
+	?>
+	<div class="block block-tags block-product-tags">
+	<?php if($widgetTitle) { ?><div class="block-title"><h2><?php echo $widgetTitle; ?></h2></div><?php } ?>
+		<div class="block-content">
+			<ul class="list-tags list-product-tags">
+				<?php foreach($tags as $tag): ?>
+				<li><a href="<?php echo $helper->getMediaUrl($tag->getIdentifier()); ?>">
+                <?php 
+					echo $tag->getTagTitle();
+					if($show_number_products){
+						echo " (".$tag->getNumberProducts().")";
+					}
+				?></a> 
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+	<?php
+}
+?>
