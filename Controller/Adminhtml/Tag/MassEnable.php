@@ -44,7 +44,7 @@ class MassEnable extends \Magento\Backend\App\Action
         $collection = $this->filter->getCollection($this->collectionFactory->create());
 
         foreach ($collection as $item) {
-            $item->setIsActive(true);
+            $item->setStatus(true);
             $item->save();
         }
 
@@ -53,5 +53,14 @@ class MassEnable extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
+    }
+    /**
+     * Check the permission to run it
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magepow_ProductTags::save');
     }
 }
