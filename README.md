@@ -31,7 +31,7 @@ php bin/magento setup:static-content:deploy -f
 
   `Login to Magento Admin > Stores > Configuration > Magepow > Proucttags > Enable > Choose Yes/No to Show or hide module Producttags.`
   
-  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/htmlsitemap.png)
+  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/adminconfig_producttags.png)
   * Route: This text will change your URL, default is "productags".
   * Show the number of products: Show/hide Show number of products beside tags.
   * Tag on the product details: Show/hide product tags on the product detail page.
@@ -40,25 +40,40 @@ php bin/magento setup:static-content:deploy -f
   * Enable tag on Sidebar: Show/hide product tags on the sidebar position.
   * Sidebar tags title: This text will show title tags on the sidebar block.
   * Limit tags on Sidebar: This text will limit the number of tags shown on the sidebar block. 
-  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/linkfooter.png)
+
   `Login to Magento Admin > Stores > Configuration > Magepow > Proucttags > Tag on the product details > Choose Yes/No to show/hide product tags on the product detail page.`
-  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/addlinksitemap.png)
-  ### 2.2. Config Product, Category and Cms page 
-   `Login to Magento Admin > Catalog > Products => Click a product in  Exclude from Sitemap, choose yes/no will hide or show link product in HTML Sitemap and XML Sitemap.`
-   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/productsitemap.png)
-   * The same config part product config category and cms page also.
-   `Login to Magento Admin >  Catalog > Categories => Click a product in  Exclude from Sitemap, choose yes/no will hide or show link category in HTML Sitemap and XML Sitemap.` 
-   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/categorysitemap.png)
-   `Login to Magento Admin > Content > Pages => Click edit a cms page in  Exclude from Sitemap, choose yes/no will hide or show link cms page in HTML Sitemap and XML Sitemap.` 
-   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/cmspagesitemap.png)
-  ### 2.3. Result 
-  * XML Sitemap:
-  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/xmlsitemap.png)
-  * HTML Sitemap: 
-  On the Home page click HTML Sitemap in the footer website.
-  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/linkfooter.png)
-  Will displays the HTML Site map according to your settings.
-  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/htmlsitemap1.png)
+  Result show in the front end store.
+  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/product_details.png)
+  `Login to Magento Admin > Stores > Configuration > Magepow > Proucttags > Enable tag on Sidebar > Choose Yes/No to show/hide product tags on the sidebar position.`
+  Result show in the front end store.
+  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/producttags_sidebar.png)
+  ### 2.2. Add new tag
+   `Login to Magento Admin > Magepow > Product Tags => Click on Add New Tag, Create new content and information for the tag.`
+  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/form_producttags.png)
+   * Add the product you want in the tag.
+  ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/gallery_product.png)
+   * Once saved, you have the list tags.
+   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/list_tags.png)
+   * In the tag list, you can take bulk actions like batch delete, enable status, and disable multiple tags.
+   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/massaction.png)
+  ### 2.3. Config Producttags on Widget.
+   * Add new widget.
+   `Login to Magento Admin > Content > Widgets > Add Widget > In type choose Display Product Tags > In design theme, choose the theme you want to use => Click continue.`
+   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/add_widget.png)
+   `Login to Magento Admin > Content > Widgets > Add Widget > Storefront Properties > Setting widget and save.`
+   * Add widget title, assign store views, sort order and in layout updates to display on pages the example shown below.
+   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/config_widget.png)
+    In widget options config.
+   ![Image of Magento admin config](https://github.com/magepow/magento2-producttags/blob/master/media/config_widget_producttags.png)
+   * Title: This text will display the title on the page selected.
+   * Tags Limit: This will limit the number of tags shown on the widget.
+   * Show Number Of Products: Show/hide Show number of products beside tags.
+
+   Results show up in the UI store by setting.
+   ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/producttags_widget.png)
+  ### 2.4. Result 
+  Click the tabs on the sidebar, in product details, or in the widgets section. Will display a tab containing the selected products in that tab.
+  ![Image of Magento storefront](https://github.com/magepow/magento2-producttags/blob/master/media/list_product.png)
  ## Donation
 
 If this project help you reduce time to develop, you can give me a cup of coffee :).
