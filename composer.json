@@ -1,27 +1,27 @@
 {
-    "name": "landofcoder/module-product-tags",
-    "description": "Assign one or multiple tags to your products and improve the navigation for your customers, who can narrow the search results by tags in the Product Filters or, vice versa, see all products with the tags",
-    "type": "magento2-module",
-    "license": "MIT",
-    "version": "1.0.3",
-    "authors": [
-        {
-            "name": "Landofcoder",
-            "email": "landofcoder@gmail.com",
-            "homepage": "https://landofcoder.com",
-            "role": "Magento 2 Extension Provider"
-        }
-    ],
-    "version": "1.0.1",
-    "require": {
-        "landofcoder/module-all" : "1.*"
-      },
-    "autoload": {
-        "files": [
-            "registration.php"
-        ],
-        "psr-4": {
-            "Magepow\\ProductTags\\": ""
-        }
+  "name": "magepow/producttags",
+  "description": "product tags magento 2",
+  "require": {
+    "magepow/core": "^1.0.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Magepow",
+      "email": "support@magepow.com",
+      "homepage": "https://www.magepow.com",
+      "role": "Technical Support"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Magepow\\ProductTags\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
 }
