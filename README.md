@@ -8,7 +8,7 @@ Before you continue, ensure you meet the following requirements:
   * You are using a Linux or Mac OS machine. Windows is not currently supported.
 
 
-## 1. Download Magento 2 Google Site Map
+## 1. Download Magento 2 Product Tags
 
  ### Install via composer (recommend).
 Run the following commands in Magento 2 root folder:
