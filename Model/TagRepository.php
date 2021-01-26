@@ -81,7 +81,7 @@ class TagRepository implements TagRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function save($tagData){
+    public function save(\Magepow\ProductTags\Api\Data\TagInterface $tagData){
         
         if (empty($tagData->getStoreId())) {
             $storeId = $this->storeManager->getStore()->getId();
