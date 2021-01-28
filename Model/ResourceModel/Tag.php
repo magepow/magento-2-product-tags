@@ -94,17 +94,16 @@ class Tag extends AbstractDb
     protected function _beforeSave(AbstractModel $object)
     {
         if (!$this->isValidPageIdentifier($object)) {
-            throw new LocalizedException(
+            throw new \Magento\Framework\Exception\LocalizedException(
                 __(
-                    "The product tags URL key can't use capital letters or disallowed symbols. "
-                    . "Remove the letters and symbols and try again."
+                    "Tag keyword(s) is invalid. Please use only letters (a-z), numbers (0-9) or underscore(,) and space in this field, first character should be a letter."
                 )
             );
         }
 
         if ($this->isNumericPageIdentifier($object)) {
-            throw new LocalizedException(
-                __("The product tags URL key can't use only numbers. Add letters or words and try again.")
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __("Identifier is invalid. Please use only letters (a-z), numbers (0-9) or underscore(,) and space in this field, first character should be a letter.")
             );
         }
         return parent::_beforeSave($object);
