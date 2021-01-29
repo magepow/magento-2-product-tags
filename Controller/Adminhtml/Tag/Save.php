@@ -5,9 +5,16 @@
  */
 namespace Magepow\ProductTags\Controller\Adminhtml\Tag;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Backend\App\Action\Context;
+use Magepow\ProductTags\Api\TagRepositoryInterface;
+use Magepow\ProductTags\Model\TagFactory;
+use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Registry;
-
+use Magento\Framework\Stdlib\DateTime\Filter\Date;
+/**
+ * Save Magepow Tag action.
+ */
 class Save extends \Magepow\ProductTags\Controller\Adminhtml\Action implements HttpPostActionInterface
 {
     protected $dataPersistor;
@@ -15,10 +22,10 @@ class Save extends \Magepow\ProductTags\Controller\Adminhtml\Action implements H
     private $tagRepository = null;
     public function __construct(
         \Magento\Framework\Stdlib\DateTime\Filter\Date  $date = null,
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\App\Request\DataPersistorInterface $dataPersistor,
-        \Magepow\ProductTags\Model\TagFactory $TagFactory,
-        \Magepow\ProductTags\Api\TagRepositoryInterface $tagRepository
+        Context $context,
+        DataPersistorInterface $dataPersistor,
+        TagFactory $TagFactory,
+        TagRepositoryInterface $tagRepository
     ) {
         $this->dataPersistor = $dataPersistor;
         $this->TagFactory = $TagFactory
@@ -51,11 +58,9 @@ class Save extends \Magepow\ProductTags\Controller\Adminhtml\Action implements H
             $identifier = $this->getRequest()->getParam('identifier');
             $store_id = $this->getRequest()->getParam('store_id');
             $status = $this->getRequest()->getParam('status');
-            $is_exists_identifier = $model->checkIdentifier($identifier, $store_id, true);
+            $is_exists_identifier = $this->validateTagIdentifier($id, $identifier, $store_id, $status);
             if($is_exists_identifier){
-                if(!$id || ($id && ($is_exists_identifier != $id))){
-                     $this->messageManager->addErrorMessage(__('The identifier already exists'));
-                }
+                $this->messageManager->addErrorMessage(__('The identifier already exists'));
             }
             else{
                 if ($id) {
@@ -93,6 +98,17 @@ class Save extends \Magepow\ProductTags\Controller\Adminhtml\Action implements H
             return $resultRedirect->setPath('*/*/edit', ['tag_id' => $id]);
         }
         return $resultRedirect->setPath('*/*/');
+    }
+
+    protected function validateTagIdentifier($tag_id, $identifier, $store_id, $status){
+        $model = $this->TagFactory->create();
+        $checked_tag_id = $model->checkIdentifier($identifier, $store_id, true);
+        if($checked_tag_id){
+            if(!$tag_id || ($tag_id && ($checked_tag_id != $tag_id))){
+                return true;
+            }
+        }
+        return false;
     }
 
     private function processBlockReturn($model, $data, $resultRedirect)
