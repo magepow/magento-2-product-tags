@@ -40,6 +40,7 @@ class AbstractProductTags extends \Magento\Framework\View\Element\Template
         $limit = $limit ?? 10;
         $collection = $this->_tagFactory->create()
         ->getCollection()->addFieldToFilter("status", 1)
+        ->addStoreFilter($this->_storeManager->getStore())
         ->setOrder("tag_id","DESC")
         ->setPageSize($limit);
         return $collection;
