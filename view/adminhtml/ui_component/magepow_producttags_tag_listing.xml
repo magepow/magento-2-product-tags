@@ -22,6 +22,9 @@
 	<dataSource component="Magento_Ui/js/grid/provider" name="magepow_producttags_tag_listing_data_source">
 		<settings>
 			<updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">tag_id</param>
+            </storageConfig>
 		</settings>
 		<aclResource>Magepow_ProductTags::Tag</aclResource>
 		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="magepow_producttags_tag_listing_data_source">
