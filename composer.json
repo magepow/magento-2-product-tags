@@ -1,6 +1,6 @@
 {
   "name": "magepow/producttags",
-  "description": "product tags magento 2",
+  "description": "Product tags magento 2",
   "require": {
     "magepow/core": "^1.0.0"
   },
@@ -8,9 +8,6 @@
   "license": [
     "MIT"
   ],
-  "require": {
-        "php": "~7.0.13||~7.1.0||~7.2.0||~7.3.0"
-    },
   "authors": [
     {
       "name": "Magepow",
