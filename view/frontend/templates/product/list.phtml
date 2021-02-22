@@ -38,7 +38,6 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
         $showCompare    = 1;
         $showWishlist   = 1;
         $showReview     = 1;
-		$swatchesRender = $block->getLayout()->createBlock('Magento\Swatches\Block\Product\Renderer\Listing\Configurable')->setTemplate('Magento_Catalog::product/listing/renderer.phtml');
     ?>
     <div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
         <?php $iterator = 1; ?>
@@ -73,7 +72,6 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                             </h2>
                             <?php echo $showReview ? $block->getReviewsSummaryHtml($_product, $templateType) : ''; ?>
                             <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
-                            <?php echo $swatchesRender->setProduct($_product)->toHtml() ?>
                             <?php echo $block->getProductDetailsHtml($_product); ?>
                         </div>
                         <?php if ($showWishlist || $showCompare || $showCart): ?>
