@@ -1,6 +1,4 @@
 <?php
-namespace Magepow\ProductTags\Controller;
-use Magento\Framework\DataObject;
 class TagRouter implements \Magento\Framework\App\RouterInterface
 {
    protected $actionFactory;
@@ -36,20 +34,32 @@ class TagRouter implements \Magento\Framework\App\RouterInterface
             $request->setModuleName('producttags')
                 ->setControllerName('tag')
                 ->setActionName('view');
+              
             if(isset($array[1])){
+              
 
                 $request->setParam('tag_code', $array[1]);
-            }
-          }else
-          {
-              return;
-          }
-          return $this->actionFactory->create(
+                return $this->actionFactory->create(
              'Magento\Framework\App\Action\Forward',
              ['request' => $request]
           );
+                            
+            }
+          }
+
+          else
+
+          {
+          return null;
+            //$request->setParam('tag_code', $array[1]);
+            
+          }
+        
+
+          // return $this->actionFactory->create(
+          //    'Magento\Framework\App\Action\Forward',
+          //    ['request' => $request]
+          // );
         }
     }
 } 
-
- 
