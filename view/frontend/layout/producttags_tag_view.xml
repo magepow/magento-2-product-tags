@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="columns.top">
+			<block class="Magepow\ProductTags\Block\Tag\Index" name="tag.view.title" template="tag/title.phtml" ifconfig="magepow_producttags/general/enabled"/>
+		</referenceContainer>
+		<referenceContainer name="sidebar.main">
+           <block class="Magepow\ProductTags\Block\Sidebar" name="tag.view.listing" template="sidebar/tags.phtml" ifconfig="magepow_producttags/general/enabled"/>
+        </referenceContainer>
+		<referenceContainer name="content">
+            <block class="Magepow\ProductTags\Block\Tag\Index" name="tag.products" template="tag/index.phtml" ifconfig="magepow_producttags/general/enabled">
+                <block class="Magepow\ProductTags\Block\Tag\View\ListProduct" name="tag.products.list" as="list_product" template="Magento_Catalog::product/list.phtml">
+                    <container name="category.product.list.additional" as="additional" />
+                    <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
+                        <block class="Magento\Framework\View\Element\Template" as="default"/>
+                    </block>
+                    <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                        <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="setToolbarBlockName">
+                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                    </action>
+                </block>
+            </block>
+            <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+                <arguments>
+                    <argument name="triggers" xsi:type="array">
+                        <item name="compareProductLink" xsi:type="string">.action.tocompare</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+	</body>
+</page>

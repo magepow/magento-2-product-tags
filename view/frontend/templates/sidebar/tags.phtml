@@ -1,0 +1,25 @@
+<?php
+$tags   = $this->getTagCollection();
+if(!$tags->getSize()) return;
+$helper = $this->helper('Magepow\ProductTags\Helper\Data');
+$title  = $helper->getConfigModule("general/tag_sidebar_title");
+$show_number_products = $helper->getConfigModule("general/show_number_products");
+?>
+<div class="block block-tags block-product-tags">
+	<?php if($title) : ?>
+		<div class="block-title"><h2><?php echo $title; ?></h2></div>
+	<?php endif ?>
+	<div class="block-content">
+		<ul class="list-tags  list-product-tags">
+			<?php foreach($tags as $tag): ?>
+				<li><a href="<?php echo $helper->getMediaUrl($tag->getIdentifier()); ?>">
+	            <?php 
+					echo $tag->getTagTitle();
+					if($show_number_products) echo " (".$block->getProductCount($tag).")";
+				?>
+	            </a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>

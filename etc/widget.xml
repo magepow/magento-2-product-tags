@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget class="Magepow\ProductTags\Block\Widget\ProductTags" id="magepow_producttags">
+		<label>Display Product Tags</label>
+		<description>Display Product Tags Widget</description>
+		<parameters>
+			<parameter name="title" visible="true" xsi:type="text">
+				<label>Title</label>
+				<description>This text will display the title on the page selected.</description>
+			</parameter>
+			<parameter name="number_tags" visible="true" xsi:type="text">
+				<label>Tags Limit</label>
+				<description>This will limit the number of tags shown on the widget.</description>
+			</parameter>
+			<parameter name="show_number_products" xsi:type="select"  visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Number Of Products</label>
+				<description>Show/hide Show number of products beside tags.</description>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>
