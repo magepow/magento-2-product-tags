@@ -1,3 +1,5 @@
+[<img src="https://github.com/magepow/themeforest/blob/master/shopify/shopify_affiliate.jpg" >](https://shopify.pxf.io/VyL446)
+
 # Magento 2 Product Tags
 
 The product tag supports both the administrator and the user, adding one or more tags. Using keywords and phrases to identify products and product features, administrators can easily group related items together and attach them to one tag and users can easily choose which items to buy one by one. easy way. With such a utility, it will save a lot of time searching and supporting customers a lot.
